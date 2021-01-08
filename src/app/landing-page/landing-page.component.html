@@ -1,0 +1,67 @@
+
+<div class="hero">
+  <div class="container">
+    <nav>
+      <div class="profile">
+        <img class="user" src="../../assets/images/user.svg" alt="profile picture">
+        <h3>Welcome Back Ashley!!!</h3>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/budgetTitle">New Budget</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/creditRepair">New Letter</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/support">Support</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
+      </ul>
+    </nav>
+``  <nav>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/budgetList">View Current Budgets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/allLetters">View Current Letters</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/calendar">View Calendar</a>
+      </li>
+    </ul>
+  </nav>
+    <div class="cards">
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title-payment">Upcoming Payments</h5>
+          <p class="card-text">Upcoming Payments</p>
+          <a routerLink="/budget" class="btn btn-primary">Add Payment</a>
+        </div>
+      </div>
+      <hr>
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title-income">Upcoming Income</h5>
+          <p class="card-text">Upcoming Income</p>
+          <a routerLink="/budget" class="btn btn-primary">Add Income</a>
+        </div>
+      </div>
+      <hr>
+      <div class="card w-50">
+        <div class="card-body">
+          <h5 class="card-title-letters">Upcoming Letter Responses</h5>
+          <p class="card-text">Upcoming Letter Responses</p>
+          <a routerLink="/calendar" class="btn btn-primary">View Calendar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

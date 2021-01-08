@@ -1,0 +1,41 @@
+<div class="hero">
+  <div class="container">
+    <nav>
+      <div class="profile">
+        <h3>Next, let's add items to your budget</h3>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="nav-item"><a class="nav-link"routerLink="/landingPage">Home</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link"routerLink="/budgetList">View Budgets</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/allLetters">View Letters</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
+      </ul>
+    </nav>
+
+    <div class="input-group">
+      <div class="input-group">
+        <span class="input-group-text">Company Name & Number</span>
+        <input type="text" aria-label="Company name" class="form-control">
+        <input type="text" aria-label="Company number" class="form-control">
+      </div>
+
+      <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+        <option selected>Type</option>
+        <option value="1">Income</option>
+        <option value="2">Expense</option>
+        <option value="3">Savings</option>
+      </select>
+      <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
+    </div>
+    <div class="input-group">
+      <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+      <span class="input-group-text">$</span>
+      <span class="input-group-text">0.00</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Budget Summary</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onAddBudgetItem(budgetItems)">Add to Budget</button> <button type="button" class="btn btn-primary">Clear</button><button type="button" class="btn btn-primary" (click)="onAddToBudget(budgets)">Submit Budget</button>
+
+

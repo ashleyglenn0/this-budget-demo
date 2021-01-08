@@ -1,0 +1,68 @@
+.container{
+  background-image: url("../../assets/images/jason-dent-3wPJxh-piRw-unsplash.jpg");
+  background-position: center;
+  background-size: 175%;
+  height: 100vh;
+  width: 100vw;
+}
+
+.hero{
+  max-width: 400px;
+  background-color: rgba(0,0,0,0.75);
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+}
+
+body{
+  background-image: url("../../assets/images/jason-dent-3wPJxh-piRw-unsplash.jpg");
+  background-position: center;
+  background-size: 175%;
+  height: 100vh;
+  width: 100vw;
+}
+.signUp{
+  color: white;
+  text-align: center;
+}
+
+.card{
+  background-color: white;
+  margin-top: 70px;
+  margin-left: 100px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.card-img-top{
+  height: 100px;
+  width: 100px;
+  padding-top: 20px;
+  margin: auto;
+}
+
+.form-group{
+  padding: 5px 2px;
+}
+
+.btn-primary{
+  background-color: navy;
+  color: white;
+  border: none;
+  margin: 40px;
+}
+
+.terms{
+  text-align: center;
+}
+
+.background{
+  height: 400px;
+}
+
+.description{
+  color: white;
+  text-align: center;
+}

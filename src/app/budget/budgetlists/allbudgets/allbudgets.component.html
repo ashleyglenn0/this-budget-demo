@@ -1,0 +1,23 @@
+<div class="hero">
+  <div class="container">
+    <nav>
+      <div class="profile">
+        <h3>Budgets</h3>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="nav-item"><a class="nav-link"routerLink="/landingPage">Home</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link"routerLink="/budget">New Budget</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/allLetters">View Letters</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
+      </ul>
+    </nav>
+
+    <div class="card" *ngFor="let budget of budgets">
+      <h5 class="card-header">{{budget.name}}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{budget.description}}</h5>
+        <p class="card-text">{{budget.budgetItems}}</p>
+        <a href="#" class="btn btn-primary">View Budget</a>
+      </div>
+    </div>
+  </div>
