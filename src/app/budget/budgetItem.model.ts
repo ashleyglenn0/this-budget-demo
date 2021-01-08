@@ -1,4 +1,5 @@
 export class BudgetItem {
+  public id: number;
   public companyName: string;
   public companyPhone: string;
   public type: string;
@@ -6,6 +7,7 @@ export class BudgetItem {
   public date: string;
 
   constructor(companyName: string, companyPhone: string, type: string, amount: number, date: string){
+    this.id = Date.now();
     this.companyName = companyName;
     this.companyPhone = companyPhone;
     this.type = type;

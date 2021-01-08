@@ -9,7 +9,7 @@ export class BudgetService {
     this.budgetItems.push(budgetItem);
   }
   onAddToBudget(budget: Budget){
-    this.budget.push(budget);
+    this.budget.push(budgets);
   }
 
 }

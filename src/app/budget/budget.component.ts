@@ -10,10 +10,10 @@ import { Budget } from './budget.model';
   providers: [BudgetService]
 })
 export class BudgetComponent implements OnInit {
-  budgetItems: BudgetItem = [
+  budgetItems: BudgetItem[] = [
     new BudgetItem('Ameren', '888-222-1111', 'Payment', 200.00, '1-4-2021')
   ];
-  budgets: Budget = [
+  budgets: Budget[] = [
     new Budget ('Budget1', 'Bills Budget', ['are'])
   ];
   constructor(private budgetService: BudgetService) {
