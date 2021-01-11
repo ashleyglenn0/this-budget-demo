@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Budget } from '../../budget.model';
 import { BudgetService } from '../../budget.service';
+import { BudgetItem } from '../../budgetItem.model';
 
 @Component({
   selector: 'app-allbudgets',
@@ -8,15 +9,21 @@ import { BudgetService } from '../../budget.service';
   styleUrls: ['./allbudgets.component.scss']
 })
 export class AllbudgetsComponent implements OnInit {
-  budgets: Budget[] = [];
+  budgetName = Budget.name;
+
+  allBudgets: Budget[] = [
+    new Budget ('Budget1', 'Bills Budget', []),
+    new Budget ('Budget2', 'Savings', []),
+    new Budget ('Budget3', 'Vacation Budget', [])
+  ];
 
   constructor(private budgetService: BudgetService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.getBudgets();
   }
-  getBudgets(): void{
-    this.budgetService.getBudgets().subscribe(budgets => this.budgets = budgets);
+  getBudgets(): any {
+    this.budgetService.getBudgets().subscribe(budgets => this.Budgets = budgets);
   }
 
 }

@@ -16,7 +16,8 @@ export class BudgetComponent implements OnInit {
     new BudgetItem('Ameren', '888-222-1111', 'Payment', 200.00, '1-4-2021')
   ];
   budgets: Budget[] = [
-    new Budget ('Budget1', 'Bills Budget', this.budgetItems)
+    new Budget ('Budget1', 'Bills Budget', this.budgetItems),
+    new Budget ('Budget2', 'Savings Budget', this.budgetItems)
   ];
   constructor(private budgetService: BudgetService) {
   }

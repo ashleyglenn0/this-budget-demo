@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 import { CreditLettersTitleComponent } from './credit-letters/creditLettersTitle/credit-letters-title/credit-letters-title.component';
 import {BudgetService} from './budget/budget.service';
+import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +38,13 @@ import {BudgetService} from './budget/budget.service';
     TermsComponent,
     NotFoundComponent,
     BudgetTitlePageComponent,
-    CreditLettersTitleComponent
+    CreditLettersTitleComponent,
+    SingleBudgetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [BudgetService],
   bootstrap: [AppComponent]

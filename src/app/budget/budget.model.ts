@@ -6,6 +6,7 @@ export class Budget {
     public description: string;
     public budgetItems: BudgetItem[];
 
+
   constructor(name: string, description: string, budgetItems: BudgetItem[]){
       this.id = Date.now();
       this.name = name;

@@ -15,6 +15,8 @@ import { TermsComponent } from './terms/terms.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 import {CreditLettersTitleComponent} from './credit-letters/creditLettersTitle/credit-letters-title/credit-letters-title.component';
+import {SingleBudgetComponent} from './budget/single-budget/single-budget.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signUp', component: SignUpComponent },
@@ -29,7 +31,8 @@ const routes: Routes = [
   { path: 'terms', component: TermsComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: 'budgetTitle', component: BudgetTitlePageComponent},
-  { path: 'creditLettersTitle', component: CreditLettersTitleComponent}
+  { path: 'creditLettersTitle', component: CreditLettersTitleComponent},
+  { path: 'singleBudgetPage', component: SingleBudgetComponent}
 ];
 
 @NgModule({

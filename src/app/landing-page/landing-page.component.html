@@ -35,24 +35,24 @@
     <div class="cards">
       <div class="card w-50">
         <div class="card-body">
-          <h5 class="card-title-payment">Upcoming Payments</h5>
-          <p class="card-text">Upcoming Payments</p>
+          <h5 class="card-title-payment">{{ paymentsTitle }}</h5>
+          <p class="card-text">{{ payment | currency:'USD'}}</p>
           <a routerLink="/budget" class="btn btn-primary">Add Payment</a>
         </div>
       </div>
       <hr>
       <div class="card w-50">
         <div class="card-body">
-          <h5 class="card-title-income">Upcoming Income</h5>
-          <p class="card-text">Upcoming Income</p>
+          <h5 class="card-title-income">{{ incomeTitle }}</h5>
+          <p class="card-text">{{ income | currency:'USD' }}</p>
           <a routerLink="/budget" class="btn btn-primary">Add Income</a>
         </div>
       </div>
       <hr>
       <div class="card w-50">
         <div class="card-body">
-          <h5 class="card-title-letters">Upcoming Letter Responses</h5>
-          <p class="card-text">Upcoming Letter Responses</p>
+          <h5 class="card-title-letters">{{ lettersTitle }}</h5>
+          <p class="card-text">{{ lettersResponse | date: 'fullDate' }}</p>
           <a routerLink="/calendar" class="btn btn-primary">View Calendar</a>
         </div>
       </div>

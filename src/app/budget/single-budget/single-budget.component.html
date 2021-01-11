@@ -2,7 +2,7 @@
   <div class="container">
     <nav>
       <div class="profile">
-        <h3>Budgets</h3>
+        <h3>Single Budget View</h3>
       </div>
       <ul class="nav nav-pills">
         <li role="presentation" class="nav-item"><a class="nav-link"routerLink="/landingPage">Home</a></li>
@@ -12,14 +12,10 @@
       </ul>
     </nav>
 
-    <div class="card" *ngFor="let budget of allBudgets">
-      <h5 class="card-header">{{ budget.name}}</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{ budget.description }}</h5>
-        <p class="card-text">{{ budget.budgetItems }}</p>
-        <a routerLink="/singleBudgetPage" class="btn btn-primary" (click)="getBudgets()">View Budget</a>
-      </div>
-    </div>
+    <p>
+      Budget Name:
+      Budget Description:
+      Budget Items:
+    </p>
   </div>
 </div>
-
