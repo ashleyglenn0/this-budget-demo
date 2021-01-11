@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { BudgetService} from './budget.service';
+import { BudgetServiceOriginal} from './budget.service.original';
 import { BudgetItem } from './budgetItem.model';
 import { Budget } from './budget.model';
 
@@ -7,7 +7,7 @@ import { Budget } from './budget.model';
   selector: 'app-budget',
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.scss'],
-  providers: [BudgetService]
+  providers: [BudgetServiceOriginal]
 })
 export class BudgetComponent implements OnInit {
   addToBudget = new EventEmitter<{budget: Budget}>();
@@ -19,7 +19,7 @@ export class BudgetComponent implements OnInit {
     new Budget ('Budget1', 'Bills Budget', this.budgetItems),
     new Budget ('Budget2', 'Savings Budget', this.budgetItems)
   ];
-  constructor(private budgetService: BudgetService) {
+  constructor(private budgetService: BudgetServiceOriginal) {
   }
 
   ngOnInit(): void {

@@ -7,17 +7,14 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 
-export class BudgetService {
+export class BudgetServiceOriginal {
   budgetItems: BudgetItem[];
   budgets: Budget[];
   constructor() {
     this.budgetItems = [
       new BudgetItem('Spire', '1-888-555-1212', 'Payment', 200.00, '1/4/2021')
     ];
-
-    this.budgets = [
-      new Budget('Budget1', 'Home Budget', this.budgetItems)
-    ];
+    this.budgets = [];
   }
  addNewBudgetItem(budget: Budget, budgetItem: BudgetItem): void {
     for (let i = 0; i < this.budgets.length; i++) {
