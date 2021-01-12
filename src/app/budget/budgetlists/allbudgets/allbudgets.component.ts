@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Budget } from '../../budget.model';
 import { BudgetService } from '../../../budget.service';
-import { BudgetItem } from '../../budgetItem.model';
+
 
 @Component({
   selector: 'app-allbudgets',
@@ -16,11 +16,11 @@ export class AllbudgetsComponent implements OnInit {
   constructor(private budgetService: BudgetService) { }
 
   ngOnInit(): any {
-    this.allBudgets = this.budgetService.getBudgets();
+     this.allBudgets = this.budgetService.getBudgets();
     // this.getBudgets();
   }
-  // getBudgets(): any {
-  //   this.budgetService.getBudgets().subscribe(budgets => this.Budgets = budgets);
-  // }
+   // getBudgets(): any {
+   //   this.budgetService.getBudgets().subscribe(budgets => this.Budgets = budgets);
+   // }
 
 }

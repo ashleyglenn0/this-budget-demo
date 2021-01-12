@@ -37,7 +37,9 @@
       <label for="exampleFormControlTextarea1">Budget Summary</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Add to Budget</button><button type="submit" class="btn btn-primary">Submit Budget</button>
+    <button type="submit" class="btn btn-primary">Add to Budget</button><button type="submit" class="btn btn-primary"(click)="getBudgets()">Submit Budget</button>
     </form>
   </div>
 </div>
+<hr>
+<p>Your Current Budget Items: </p>
