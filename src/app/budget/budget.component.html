@@ -11,15 +11,16 @@
         <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
       </ul>
     </nav>
-
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="input-group">
       <div class="input-group">
-        <span class="input-group-text">Company Name & Number</span>
-        <input type="text" aria-label="Company name" class="form-control">
-        <input type="text" aria-label="Company number" class="form-control">
+        <span class="input-group-text">Date, Company Name, & Company Number</span>
+        <input type="text" aria-label="Date" class="form-control" ngModel name="date" required>
+        <input type="text" aria-label="Company name" class="form-control" ngModel name="companyName" required>
+        <input type="text" aria-label="Company number" class="form-control" ngModel name="companyPhoneNumber" required>
       </div>
 
-      <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+      <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" ngModel name="type" required>
         <option selected>Type</option>
         <option value="1">Income</option>
         <option value="2">Expense</option>
@@ -28,7 +29,7 @@
       <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
     </div>
     <div class="input-group">
-      <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+      <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" ngModel name="amount" required>
       <span class="input-group-text">$</span>
       <span class="input-group-text">0.00</span>
     </div>
@@ -36,6 +37,7 @@
       <label for="exampleFormControlTextarea1">Budget Summary</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button type="button" class="btn btn-primary" (click)="addNewBudgetItem()">Add to Budget</button><button type="button" class="btn btn-primary" (click)="addNewBudget()">Submit Budget</button>
-</div>
+    <button type="submit" class="btn btn-primary">Add to Budget</button><button type="submit" class="btn btn-primary">Submit Budget</button>
+    </form>
+  </div>
 </div>
