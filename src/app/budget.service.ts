@@ -27,13 +27,14 @@ export class BudgetService {
   createBudgetItem(date: string, companyName: string, companyPhoneNumber: string, type: string, amount: number): any{
     const budgetItem: BudgetItem = new BudgetItem(companyName, companyPhoneNumber, type, amount, date);
     this.budgetItems.push(budgetItem);
-    return budgetItem;
+    return budgetItem.id;
   }
 
-  getFullBudget(budgetName: string, budgetDescription: string, budgetItems: (string | number)[]): any{
-  const completedBudget: Budget = new Budget(budgetName, budgetDescription, this.budgetItems);
-  this.fullBudget.push(completedBudget);
-  return completedBudget;
+  getFullBudget(budgetName: string, budgetDescription: string, budgetItems: BudgetItem[]): any{
+    budgetItems = this.budgetItems;
+    const completedBudget: Budget = new Budget(budgetName, budgetDescription, this.budgetItems);
+    this.fullBudget.push(completedBudget);
+    return completedBudget;
 }
   getBudgets(): Budget[] {
     return this.fullBudget;

@@ -17,7 +17,7 @@ export class BudgetTitlePageComponent implements OnInit {
     console.log(this.budgetService);
   }
 
-onSubmit(form: NgForm){
+onSubmit(form: NgForm): any{
  console.log(form.form.value.budgetName);
  const budgetName = form.form.value.budgetName;
  const budgetDescription = form.form.value.budgetDescription;

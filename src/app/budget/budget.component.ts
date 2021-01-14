@@ -13,6 +13,7 @@ import { BudgetItem} from './budgetItem.model';
   providers: [BudgetService]
 })
 export class BudgetComponent implements OnInit {
+   budgetItems: (string | number)[] = ['Spire', '212-222-2212', 'Expense', 205.00, '1/13/21'];
    budgetId: string;
 
 
@@ -21,24 +22,30 @@ export class BudgetComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm): any{
-    console.log(form.form.value.budgetItems);
+    console.log(form);
     const date = form.form.value.date;
     const companyName = form.form.value.companyName;
     const companyPhoneNumber = form.form.value.companyPhone;
     const type = form.form.value.type;
     const amount = form.form.value.amount;
-    const budgetItems = this.budgetService.createBudgetItem(date, companyName, companyPhoneNumber, type, amount);
+    this.budgetService.createBudgetItem(date, companyName, companyPhoneNumber, type, amount);
+  }
+
+  createBudget(): Budget[]{
+    return this.budgetService.fullBudget;
   }
 
   getFullBudget(): Budget[]{
     const budgetName: string = this.budgetId;
     const budgetDescription: string = this.budgetId;
-    const budgetItems: (string | number)[] = ['Spire', '212-222-5545', 'Expense', 205.00, '1/12/21'];
+    const budgetItems: BudgetItem [] = [];
     return this.budgetService.getFullBudget(budgetName, budgetDescription, budgetItems);
   }
   getBudgets(): Budget[] {
-    this.router.navigate(['/budgetList']);
     return this.budgetService.fullBudget;
+  }
+  navigate(): any{
+    this.router.navigate(['/budgetList']);
   }
 
 }
