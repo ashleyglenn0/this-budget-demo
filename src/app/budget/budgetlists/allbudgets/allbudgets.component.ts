@@ -16,7 +16,7 @@ export class AllbudgetsComponent implements OnInit {
   constructor(private budgetService: BudgetService) { }
 
   ngOnInit(): any {
-     this.allBudgets = this.budgetService.getBudgets();
+     // this.allBudgets = this.budgetService.getBudgets();
      // console.log(this.allBudgets);
     // this.getBudgets();
   }

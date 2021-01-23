@@ -8,7 +8,7 @@ export class Budget {
 
 
   constructor(name: string, description: string, budgetItems: BudgetItem[]){
-      this.id = Date.now();
+      this.id = id;
       this.name = name;
       this.description = description;
       this.budgetItems = [];

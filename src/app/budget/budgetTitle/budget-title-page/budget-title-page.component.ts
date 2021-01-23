@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Injectable} from '@angular/core';
 import { BudgetService } from '../../../budget.service';
 import {NgForm} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Budget } from '../../budget.model' ;
 
 @Component({
   selector: 'app-budget-title-page',
@@ -11,21 +12,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./budget-title-page.component.scss']
 })
 export class BudgetTitlePageComponent implements OnInit {
-  constructor(private router: Router, private budgetService: BudgetService) { }
+  budgets: Budget [] = [];
+  budgetId: 0;
+  budgetDescription = '';
+  budgetName = '';
+
+  constructor(private route: ActivatedRoute, private router: Router, private budgetService: BudgetService) { }
 
   ngOnInit(): void {
-    console.log(this.budgetService);
+    // this.budgets = this.budgetService.getBudgets(this.budgetId);
+    // this.budgetId = this.route.snapshot.params.id;
+
   }
 
 onSubmit(form: NgForm): any{
- console.log(form.form.value.budgetName);
- const budgetName = form.form.value.budgetName;
- const budgetDescription = form.form.value.budgetDescription;
- const budgetId = this.budgetService.createBudget(budgetName, budgetDescription);
- // pass budgetId to next page and navigate user to that page.
+  const budgetName = form.form.value.budgetName;
+  const budgetDescription = form.form.value.budgetDescription;
+  const budgetId = this.budgetService.createBudget(budgetName, budgetDescription);
+  this.router.navigate(['/budget', budgetId]);
+  console.log(form);
+
+  // pass budgetId to next page and navigate user to that page.
 }
-  navigateToNextPage(): any{
-    this.router.navigate(['/budget']);
-  }
+
 
 }

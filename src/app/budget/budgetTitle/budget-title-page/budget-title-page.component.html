@@ -12,16 +12,16 @@
       </ul>
     </nav>
 
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Budget Name</label>
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Budget Name" ngModel name="budgetName" required>
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Budget Description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel name="budgetDescription" required></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" ngModel name="budgetDescription" required></textarea>
     </div>
-      <button class="btn btn-default" type="submit" (click)="navigateToNextPage()">Next</button>
+      <button class="btn btn-default" type="submit">Next</button>
     </form>
    </div>
   </div>
