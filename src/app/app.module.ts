@@ -18,8 +18,7 @@ import { SupportComponent } from './support/support.component';
 import { TermsComponent } from './terms/terms.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
-import { CreditLettersTitleComponent } from './credit-letters/creditLettersTitle/credit-letters-title/credit-letters-title.component';
-import { BudgetServiceOriginal } from './budget/budget.service.original';
+// import { BudgetServiceOriginal } from './budget/budget.service.original';
 import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
 
 @NgModule({
@@ -38,7 +37,6 @@ import { SingleBudgetComponent } from './budget/single-budget/single-budget.comp
     TermsComponent,
     NotFoundComponent,
     BudgetTitlePageComponent,
-    CreditLettersTitleComponent,
     SingleBudgetComponent
   ],
   imports: [
@@ -46,7 +44,7 @@ import { SingleBudgetComponent } from './budget/single-budget/single-budget.comp
     AppRoutingModule,
     FormsModule
   ],
-  providers: [BudgetServiceOriginal],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

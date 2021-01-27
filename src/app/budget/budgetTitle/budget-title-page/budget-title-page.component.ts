@@ -13,15 +13,15 @@ import { Budget } from '../../budget.model' ;
 })
 export class BudgetTitlePageComponent implements OnInit {
   budgets: Budget [] = [];
-  budgetId: 0;
-  budgetDescription = '';
-  budgetName = '';
+  budgetId: any ;
+
 
   constructor(private route: ActivatedRoute, private router: Router, private budgetService: BudgetService) { }
 
   ngOnInit(): void {
-    // this.budgets = this.budgetService.getBudgets(this.budgetId);
     // this.budgetId = this.route.snapshot.params.id;
+    // this.budgets = this.budgetService.getBudgets(this.budgetId);
+
 
   }
 

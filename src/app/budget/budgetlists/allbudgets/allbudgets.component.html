@@ -13,11 +13,28 @@
     </nav>
 
     <div class="card" *ngFor="let budget of allBudgets">
-      <h5 class="card-header">{{ budget.name}}</h5>
+      <h5 class="card-header">Budget Name: {{budget.name}}</h5>
       <div class="card-body">
-        <h5 class="card-title">{{ budget.description }}</h5>
-        <p class="card-text">{{ budget.budgetItems }}</p>
-        <a routerLink="/singleBudgetPage" class="btn btn-primary">View Budget</a>
+        <h5 class="card-title">Budget Description:{{budget.description}}</h5>
+        <p class="card-text">Budget Items:</p>
+        <ul *ngFor="let budgetItem of budget.budgetItems">
+          <li>
+          {{budgetItem.companyName}}
+          </li>
+          <li>
+            {{budgetItem.date}}
+          </li>
+          <li>
+            {{budgetItem.type}}
+          </li>
+          <li>
+            ${{budgetItem.amount}}
+          </li>
+          <li>
+            {{budgetItem.notes}}
+          </li>
+        </ul>
+        <button class="btn btn-primary" (click)="onViewBudget(budget)">View Budget</button>
       </div>
     </div>
   </div>

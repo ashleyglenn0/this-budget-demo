@@ -12,7 +12,7 @@
       </ul>
     </nav>
 
-    <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Budget Name</label>
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Budget Name" ngModel name="budgetName" required>

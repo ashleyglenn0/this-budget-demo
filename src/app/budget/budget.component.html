@@ -17,38 +17,27 @@
         <span class="input-group-text">Date, Company Name, & Company Number</span>
         <input type="text" aria-label="Date" class="form-control" ngModel name="date" required>
         <input type="text" aria-label="Company name" class="form-control" ngModel name="companyName" required>
-        <input type="text" aria-label="Company number" class="form-control" ngModel name="companyPhoneNumber" required>
+        <input type="text" aria-label="Company number" class="form-control" ngModel name="companyPhone" required>
       </div>
 
       <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" ngModel name="type" required>
         <option selected>Type</option>
-        <option value="1">Income</option>
-        <option value="2">Expense</option>
-        <option value="3">Savings</option>
+        <option value="Income">Income</option>
+        <option value="Expense">Expense</option>
+        <option value="Savings">Savings</option>
       </select>
       <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
     </div>
     <div class="input-group">
       <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" ngModel name="amount" required>
-      <span class="input-group-text">$</span>
-      <span class="input-group-text">0.00</span>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Item Summary</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="exampleFormControlTextarea1">Notes</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel name="notes"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Add to Budget</button>
     </form>
   </div>
 </div>
-<hr>
-<p>Your Current Budget Items:
-  <span> Date : </span>
-  <br>
-  <span> Company Name : </span>
-  <br>
-  <span> Company Phone : </span>
-  <br>
-  <span> Type : </span>
-  <br>
-  <span> Amount : </span> </p>
+
+
