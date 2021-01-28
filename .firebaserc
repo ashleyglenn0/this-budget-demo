@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test-firebase-ab152": {
+      "hosting": {
+        "test-firebase": [
+          "test-firebase-ab152"
+        ]
+      }
+    }
+  }
+}
