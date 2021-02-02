@@ -18,11 +18,11 @@ import firebase from 'firebase/app';
         
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-        let user = userCredential.user;
+        const user = userCredential.user;
     })
     .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
+        const errorCode = error.code;
+        const errorMessage = error.message;
     });
     }
      
