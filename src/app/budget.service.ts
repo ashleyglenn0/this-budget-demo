@@ -19,9 +19,14 @@ export class BudgetService {
       this.budgets = JSON.parse(temp);
     } else {
       localStorage.setItem('budgets', '[]');
+      
       this.budgets = [
         new Budget('Budget1', 'Home Budget', [
           new BudgetItem('Ameren Electric', '888-222-2222', 'expense', -192.62, '1/11/21', 'none'),
+          new BudgetItem('Spire', '888-222-2111', 'expense', -50.62, '1/11/21', 'paid in full'),
+          new BudgetItem('AT&T', '888-212-2552', 'expense', -251.02, '1/11/21', 'made payment arrangement'),
+          new BudgetItem('Credit Acceptance', '888-382-5311', 'expense', -158.68, '1/11/21', 'car note'),
+          new BudgetItem('RayCodes LLC', '888-222-2222', 'income', 500.00, '1/11/21', 'for webpage'),
           new BudgetItem('Best Buy', '888-222-2222', 'income', 1500.00, '1/11/21', 'paycheck')
         ])
       ];

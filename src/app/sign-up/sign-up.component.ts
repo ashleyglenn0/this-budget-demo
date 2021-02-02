@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,18 +18,23 @@ export class SignUpComponent implements OnInit {
   password: string = '';
   userId: string = '';
 
-  onSubmit(form: NgForm): any{
+constructor (public authService: AuthService, public afs: AngularFirestore, private router: Router){
+
+}
+
+  onSubmit(form: NgForm): any {
+    const name = form.form.value.name;
+    const email = form.form.value.email;
+    const password = form.form.value.password;
+    this.authService.signUpWithEmailPassword(this.email, this.password);
+    this.router.navigate(['/landingPage', this.userId])
+
     console.log(form);
   }
 
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore) { 
-    this.auth.user.subscribe((user)=>{
-      this.email = email?.uid || '';
-      this.password = password?.uid || '';
-    });
-  }
 
-  ngOnInit(): void { } 
+
+  ngOnInit(): void { }
 
 }
 

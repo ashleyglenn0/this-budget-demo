@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { User } from '../app/user.model';
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
+
+@Injectable({
+    providedIn: 'root'
+  })
+  export class AuthService {
+      users: User[] = [];
+      passwords: User[] = [];
+      emails: User[] = [];
+
+    constructor(public auth: AngularFireAuth) {
+
+    }
+
+
+    signUpWithEmailPassword(email: string, password: string) {
+        email = '';
+        password = ''
+        
+    firebase.auth().createUserWithEmailAndPassword(email,password)
+    .then((userCredential) => {
+        let user = userCredential.user;
+    })
+    .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+    });
+    }
+     
+    
+    login() {
+        this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+    logout() {
+        this.auth.signOut();
+    }
+  }
