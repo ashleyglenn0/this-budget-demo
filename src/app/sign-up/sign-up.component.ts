@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { User } from '../user.model';
 
 
 @Component({
@@ -17,21 +18,31 @@ export class SignUpComponent implements OnInit {
   email: string = '';
   password: string = '';
   userId: string = '';
+  
 
-constructor (public authService: AuthService, public afs: AngularFirestore, private router: Router){
-
+constructor (public auth: AngularFireAuth, public authService: AuthService, public afs: AngularFirestore, private router: Router){
+ 
+  this.auth.user.subscribe((user) => {
+    this.userId = user?.uid || "";
+  }); 
 }
+
+
 
   onSubmit(form: NgForm): any {
     const name = form.form.value.name;
     const email = form.form.value.email;
     const password = form.form.value.password;
-    this.authService.signUpWithEmailPassword(this.email, this.password);
-    this.router.navigate(['/landingPage', this.userId])
+    this.authService.signUpWithEmailPassword(email, password);
+    this.router.navigate(['/landingPage', this.userId]);
 
     console.log(form);
   }
 
+  login() {
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.router.navigate(['/landingPage', this.userId]);
+}
 
 
   ngOnInit(): void { }

@@ -7,20 +7,16 @@ import firebase from 'firebase/app';
     providedIn: 'root'
   })
   export class AuthService {
-      users: User[] = [];
-      passwords: User[] = [];
-      emails: User[] = [];
 
     constructor(public auth: AngularFireAuth) {
 
     }
 
-
     signUpWithEmailPassword(email: string, password: string) {
         email = '';
-        password = ''
+        password = '';
         
-    firebase.auth().createUserWithEmailAndPassword(email,password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
         let user = userCredential.user;
     })
