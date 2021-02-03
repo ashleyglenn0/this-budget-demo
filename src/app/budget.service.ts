@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Budget } from './budget/budget.model';
 import { BudgetItem } from './budget/budgetItem.model';
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BudgetService {
-  budgets: Budget[] = [];
+  budgets: Observable<Budget[]>;
   budgetItems: BudgetItem[] = [];
+  userId: string = "";
+  private budgetsCollection!: AngularFirestoreCollection<Budget>;
+  
 
-  constructor() {
-    const temp = localStorage.getItem('budgets');
+  constructor(private readonly afs: AngularFirestore) {
+    this.budgetsCollection = afs.collection<Budget>('budgets');
+    this.budgets = this.budgetsCollection.valueChanges({uid: 'userId'});
+    
+ 
     
 
     // const data = JSON.parse(temp || null);
@@ -34,23 +44,34 @@ export class BudgetService {
 
   }
 
+  addBudget() {
+    this.budgetsCollection.add({
+      userId: this.userId,
+      name: '',
+      description: '',
+      budgetItems: []
+    }).then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    });
+  }
+
 
 
   createBudget(budgetName: string, budgetDescription: string, budgetItems: any = []): number{
     const budget: Budget = new Budget(budgetName, budgetDescription, budgetItems);
-    this.budgets.push(budget);
-    this.persistBudgetData();
+    // this.budgets.push(budget);
+    this.addBudget();
     return budget.id;
   }
 
-  getBudgetById(id: number): Budget|undefined {
-    for (let i = 0; i < this.budgets.length; i++) {
-      if (this.budgets[i].id === id) {
-        return this.budgets[i];
-      }
-    }
-    return undefined;
-  }
+  // getBudgetById(id: number): Budget|undefined {
+  //   for (let i = 0; i < this.budgets.length; i++) {
+  //     if (this.budgets[i].id === id) {
+  //       return this.budgets[i];
+  //     }
+  //   }
+  //   return undefined;
+  // }
 
   // tslint:disable-next-line:max-line-length
   createBudgetItem(date: string, companyName: string, companyPhone: string, type: string, amount: number, notes: string, budget: Budget): any{
@@ -67,6 +88,9 @@ export class BudgetService {
   persistBudgetData(): void {
     localStorage.setItem('budgets', JSON.stringify(this.budgets));
   }
+
+
+
 
 
 }

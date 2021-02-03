@@ -22,9 +22,6 @@ export class SignUpComponent implements OnInit {
 
 constructor (public auth: AngularFireAuth, public authService: AuthService, public afs: AngularFirestore, private router: Router){
  
-  this.auth.user.subscribe((user) => {
-    this.userId = user?.uid || "";
-  }); 
 }
 
 
