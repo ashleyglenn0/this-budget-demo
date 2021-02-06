@@ -15,34 +15,33 @@ import { User } from '../user.model';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  email: string = '';
-  password: string = '';
-  userId: string = '';
+ 
+  authError: any;
   
 
-constructor (public auth: AngularFireAuth, public authService: AuthService, public afs: AngularFirestore, private router: Router){
+constructor (private auth: AngularFireAuth, private authService: AuthService, private router: Router){
  
+}
+
+ngOnInit(): void { 
+  this.authService.eventAuthError$.subscribe( data => {
+    this.authError = data;
+  })
 }
 
 
 
-  onSubmit(form: NgForm): any {
-    const firstName = form.form.value.firstname;
-    const lastName = form.form.value.lastname;
-    const email = form.form.value.email;
-    const password = form.form.value.password;
-    this.router.navigate(['/landingPage', this.userId]);
-
-    console.log(form);
+  createUser(form: NgForm): any {
+   this.authService.createUser(form.value);
   }
 
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.router.navigate(['/landingPage', this.userId]);
+    this.router.navigate(['/landingPage']);
 }
 
 
-  ngOnInit(): void { }
+ 
 
 }
 

@@ -8,17 +8,25 @@
       <h6 class="description">The free budget and credit repair letter tracker</h6>
     </div>
     <div>
+      <div class="col-12">
+        <div class="row" *ngIf="authError">
+          <div class="col-12 alert alert-danger">
+            {{ authError?.message }}
+          </div>
+        </div>
+      </div>
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="" alt="Authentication picture">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        
+        <form (ngSubmit)="createUser(userRegForm)" #userRegForm="ngForm">
           <div class="form-group">
             <label for="exampleInputName">First Name</label>
-            <input type="text" class="form-control" id="exampleInputName" placeholder="First Name" ngModel name="firstname"
+            <input type="text" class="form-control" id="exampleInputName" placeholder="First Name" ngModel name="firstName"
               required>
           </div>
           <div class="form-group">
             <label for="exampleInputName">Last Name</label>
-            <input type="text" class="form-control" id="exampleInputName" placeholder="Last Name" ngModel name="lastname"
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Last Name" ngModel name="lastName"
               required>
           </div>
           <div class="form-group">
@@ -35,7 +43,7 @@
           <div class="terms">
             <a routerLink="/terms">Terms of Service</a>
           </div>
-          <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!userRegForm.valid">Submit</button>
         </form>
         <button (click)="login()">SignUp with Google</button>
         <a routerLink="/">Back</a>

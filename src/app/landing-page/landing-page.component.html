@@ -4,7 +4,7 @@
     <nav>
       <div class="profile">
         <img class="user" src="" alt="profile picture">
-        <h3>Welcome Back!!!</h3>
+        <h3>Welcome Back {{ user?.displayName }}!!!</h3>
       </div>
       <ul class="nav nav-pills">
         <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/budgetTitle">New Budget</a></li>
@@ -34,7 +34,6 @@
         <div class="card-body">
           <h5 class="card-title-payment">{{ paymentsTitle }}</h5>
           <p class="card-text">{{ payment | currency:'USD'}}</p>
-          <a routerLink="/budget" class="btn btn-primary">Add Payment</a>
         </div>
       </div>
       <hr>
@@ -42,7 +41,6 @@
         <div class="card-body">
           <h5 class="card-title-income">{{ incomeTitle }}</h5>
           <p class="card-text">{{ income | currency:'USD' }}</p>
-          <a routerLink="/budget" class="btn btn-primary">Add Income</a>
         </div>
       </div>
       <hr>

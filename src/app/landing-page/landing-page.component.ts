@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  paymentsTitle = 'Upcoming Payments: ';
-  incomeTitle = 'Upcoming Income: ';
+  user: firebase.User;
+
+  paymentsTitle = 'Last Payment: ';
+  incomeTitle = 'Last Income: ';
   lettersTitle = 'Upcoming Letter Responses: ';
   lettersResponse = '01/11/2021';
   payment = 0.00;
   income = 0.00;
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.auth.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    })
   }
 
 }

@@ -4,9 +4,12 @@
       <h1 class="signUp">Welcome Back!</h1>
       <h6 class="description">Please sign in</h6>
     </div>
+    <div class="row" *ngIf="authError">
+      <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+    </div>
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="" alt="Card image cap">
-      <form>
+      <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -19,8 +22,9 @@
         <div class="terms">
           <a routerLink="/terms">Terms of Service</a>
         </div>
-        <button type="submit" class="btn btn-primary"><a routerLink="/landingPage">Submit</a></button>
+        <button type="submit" class="btn btn-primary"><a routerLink="/landingPage">Log In</a></button>
       </form>
+      <button (click)="login()">Log in with Google</button>
 
       <a routerLink="/">Back</a>
     </div>
