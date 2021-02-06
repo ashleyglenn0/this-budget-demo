@@ -12,29 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  private budgetsCollection!: AngularFireStoreCollection<Budget>;
-  budgets!: Observable<Budget[]>;
-  userId: string = "";
+  
 
-  constructor(public auth: AngularFireAuth, private afs: AngularFirestore, private firestoreCollection: AngularFirestoreCollection, private router: Router) {
-    this.auth.user.subscribe((user) => {
-      this.userId = user?.uid || "";
-      this.budgetsCollection = this.afs.collection<Budget>('budgets', ref => ref.where('userId', '==', this.userId));
-      this.budgets = this.budgetsCollection.valueChanges();
-    })
-   }
+  constructor() {
+  
 
-  ngOnInit(): void {
- 
+  ngOnInit(): void {}
+  
   }
-
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.router.navigate(['/landingPage', this.userId]);
-}
-
-logout() {
-  this.auth.signOut();
-}
-
 }

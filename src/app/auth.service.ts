@@ -13,44 +13,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
     }
 
-    signUpWithEmailPassword(email: string, password: string) {
-        email = '';
-        password = '';
-        
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-        const user = userCredential.user;
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    });
-    }
 
    
     
-    signedIn(){
-    firebase.auth().onAuthStateChanged((user) =>{
-        if (user) {
-            const uid = user.uid;
-        } else {
-
-        }
-  });
 }
     
-    login(email: string, password: string) {
-        this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-        firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
-    }
-    logout() {
-        this.auth.signOut();
-    }
-  }
+   
+  

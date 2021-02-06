@@ -5,6 +5,7 @@ import { FormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import  'firebase/firestore';
 import { environment } from '../environments/environment';
 
 
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 // import { BudgetServiceOriginal } from './budget/budget.service.original';
 import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import { SingleBudgetComponent } from './budget/single-budget/single-budget.comp
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'this-budget'),
     AngularFirestoreModule,
     AngularFireAuthModule
   ],

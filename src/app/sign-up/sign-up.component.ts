@@ -30,7 +30,6 @@ constructor (public auth: AngularFireAuth, public authService: AuthService, publ
     const name = form.form.value.name;
     const email = form.form.value.email;
     const password = form.form.value.password;
-    this.authService.signUpWithEmailPassword(email, password);
     this.router.navigate(['/landingPage', this.userId]);
 
     console.log(form);
