@@ -19,8 +19,8 @@ export class BudgetTitlePageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private budgetService: BudgetService) { }
 
   ngOnInit(): void {
-    // this.budgetId = this.route.snapshot.params.id;
-    // this.budgets = this.budgetService.getBudgets(this.budgetId);
+    this.budgetId = this.route.snapshot.params.id;
+    this.budgets = this.budgetService.getBudgets(this.budgetId);
 
 
   }

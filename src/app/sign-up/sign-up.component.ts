@@ -27,7 +27,8 @@ constructor (public auth: AngularFireAuth, public authService: AuthService, publ
 
 
   onSubmit(form: NgForm): any {
-    const name = form.form.value.name;
+    const firstName = form.form.value.firstname;
+    const lastName = form.form.value.lastname;
     const email = form.form.value.email;
     const password = form.form.value.password;
     this.router.navigate(['/landingPage', this.userId]);
