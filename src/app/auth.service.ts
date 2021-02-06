@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import firebase from 'firebase/app';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
   export class AuthService {
     private eventAuthError = new BehaviorSubject<string>("");
     eventAuthError$ = this.eventAuthError.asObservable();
-
+   
     newUser: any;
 
     constructor(private afAuth: AngularFireAuth, 
@@ -34,13 +35,12 @@ import { BehaviorSubject } from 'rxjs';
     })
    }
 
-   createUser(user) {
-       this.afAuth.createUserWithEmailAndPassword( user.email, user.password)
+   createUser(email: string, password: string, firstName: string, lastName: string) {
+       this.afAuth.createUserWithEmailAndPassword(email, password)
        .then( userCredential => {
-           this.newUser = user;
-           console.log(userCredential);
-           userCredential.user.updateProfile( {
-               displayName: user.firstName
+          
+           userCredential.user?.updateProfile( {
+               displayName: firstName
            });
 
            this.insertUserData(userCredential)
@@ -55,7 +55,7 @@ import { BehaviorSubject } from 'rxjs';
    }
 
    insertUserData(userCredential: firebase.auth.UserCredential){
-      return this.db.doc(`Users/${userCredential.user.uid}`).set({
+      return this.db.doc(`Users/${userCredential.user?.uid}`).set({
           email: this.newUser.email,
           firstname: this.newUser.firstName,
           lastname: this.newUser.lastName,

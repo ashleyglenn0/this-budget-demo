@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import firebase from 'firebase/app';
- import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
- import { Observable } from 'rxjs';
  import { Router } from '@angular/router';
  import { AuthService } from '../auth.service';
 
@@ -25,9 +21,10 @@ ngOnInit(){
 
 }
 
-login(loginForm){
-  this.auth.login(loginForm.value.email, loginForm.value.password);
+login(form: NgForm): any {
+  this.auth.login(form.value.email, form.value.password);
 }
+
   
   
 }

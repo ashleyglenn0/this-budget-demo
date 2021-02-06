@@ -22,7 +22,6 @@ import { LettersListComponent } from './credit-letters/allLetters/letters-list/l
 import { CalendarComponent } from './calendar/calendar.component';
 import { SupportComponent } from './support/support.component';
 import { TermsComponent } from './terms/terms.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 // import { BudgetServiceOriginal } from './budget/budget.service.original';
 import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
@@ -42,7 +41,6 @@ import { SingleBudgetComponent } from './budget/single-budget/single-budget.comp
     CalendarComponent,
     SupportComponent,
     TermsComponent,
-    NotFoundComponent,
     BudgetTitlePageComponent,
     SingleBudgetComponent
   ],

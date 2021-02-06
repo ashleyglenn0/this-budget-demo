@@ -12,7 +12,6 @@ import { LettersListComponent } from './credit-letters/allLetters/letters-list/l
 import { CalendarComponent } from './calendar/calendar.component';
 import { SupportComponent } from './support/support.component';
 import { TermsComponent } from './terms/terms.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
 
@@ -27,7 +26,6 @@ const routes: Routes = [
   { path: 'budgetList', component: AllbudgetsComponent },
   { path: 'allLetters', component: LettersListComponent },
   { path: 'terms', component: TermsComponent},
-  { path: 'not-found', component: NotFoundComponent},
   { path: 'budgetTitle', component: BudgetTitlePageComponent},
   { path: 'budget/:id', component: BudgetComponent },
   { path: 'singleBudgetPage/:id', component: SingleBudgetComponent}

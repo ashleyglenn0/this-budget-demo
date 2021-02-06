@@ -32,7 +32,12 @@ ngOnInit(): void {
 
 
   createUser(form: NgForm): any {
-   this.authService.createUser(form.value);
+   const email = form.value.email;
+   const password = form.value.password;
+   const firstName = form.value.firstName;
+   const lastName = form.value.lastName;
+   
+    this.authService.createUser(email, password, firstName, lastName);
   }
 
   login() {

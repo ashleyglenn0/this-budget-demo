@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  user: firebase.User;
+  user: firebase.User|null|undefined;
 
   paymentsTitle = 'Last Payment: ';
   incomeTitle = 'Last Income: ';
