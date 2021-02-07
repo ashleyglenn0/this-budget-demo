@@ -14,7 +14,7 @@ export class BudgetService {
   budgetItems: BudgetItem[] = [];
  
 
-  constructor(private firestore: AngularFirestoreCollection,) {
+  constructor() {
     // const temp;
     // if (temp !== null){
     //   this.budgets = JSON.parse(temp);
@@ -40,6 +40,7 @@ export class BudgetService {
     this.budgets.push(budget);
     return budget.id;
   }
+  
   getBudgetById(id: number): Budget | undefined {
     for (let i = 0; i < this.budgets.length; i++) {
       if (this.budgets[i].id === id) {

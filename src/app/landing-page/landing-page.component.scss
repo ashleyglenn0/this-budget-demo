@@ -6,6 +6,13 @@
   height: 100vh;
 }
 
+.main-nav {
+  margin-bottom: 30px;
+
+  h3 {
+    margin-top: 10px;
+  }
+}
 .user{
   height: 100px;
   width: 100px;
@@ -15,11 +22,15 @@
   float: right;
 }
 
-h3{
+h3 {
   color: white;
 }
 .nav-link{
   color: white;
+
+  &:hover {
+    color: black;
+  }
 }
 
 .card{

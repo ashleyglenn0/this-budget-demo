@@ -11,7 +11,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
       </ul>
     </nav>
-
+    <div class="budgetInfo">
     <p>
       Budget Name: {{ budget?.name }}
       <br>
@@ -19,9 +19,11 @@
       <br>
       Budget Items: 
     </p>
+  </div>
+
     <div *ngIf="budget && budget.budgetItems && budget.budgetItems.length > 0" >
       <div *ngFor="let item of budget.budgetItems">
-        {{item.companyName}} {{item.type}} {{item.companyPhone}}
+        {{item.companyName}} {{item.type}}
       </div>
     </div>
     <p>
@@ -35,13 +37,13 @@
 
     <ul>These are your expenses for this budget:
       <li *ngFor="let expense of expenseList">
-        {{ expense.amount }} {{ expense.companyName }}
+         {{ expense.companyName }} {{ expense.amount }}
       </li>
     </ul>
 
     <ul>This is your income for this budget:
       <li *ngFor="let income of incomeList">
-        {{income.amount }}  {{ income.companyName }}
+         {{ income.companyName }} {{income.amount }} 
       </li>
     </ul>
 

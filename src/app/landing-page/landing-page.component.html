@@ -1,62 +1,79 @@
-
 <div class="hero">
   <div class="container">
-    <nav>
-      <div class="profile">
-        <img class="user" src="" alt="profile picture">
+    <div class="row main-nav">
+      <div class="col-xs-4">
+        <!-- <img class="user" src="" alt="profile picture"> -->
         <h3>Welcome Back {{ user?.displayName }}!!!</h3>
       </div>
+    </div>
+    <div class="col-xs-8">
+    <nav>
       <ul class="nav nav-pills">
-        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/budgetTitle">New Budget</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/creditRepair">New Letter</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/support">Support</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/">Log out</a></li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLink="/budgetTitle">New Budget</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLink="/creditRepair">New Letter</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLink="/support">Support</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLink="/">Log out</a>
+        </li>
       </ul>
     </nav>
-``  <nav>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/budgetList">View Current Budgets</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/allLetters">View Current Letters</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Settings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/calendar">View Calendar</a>
-      </li>
-    </ul>
-  </nav>
-    <div class="cards">
-      <div class="card w-50">
-        <div class="card-body">
-          <h5 class="card-title-payment">{{ paymentsTitle }}</h5>
-          <p class="card-text">{{ payment | currency:'USD'}}</p>
-        </div>
-      </div>
-      <hr>
-      <div class="card w-50">
-        <div class="card-body">
-          <h5 class="card-title-income">{{ incomeTitle }}</h5>
-          <p class="card-text">{{ income | currency:'USD' }}</p>
-        </div>
-      </div>
-      <hr>
-      <div class="card w-50">
-        <div class="card-body">
-          <h5 class="card-title-letters">{{ lettersTitle }}</h5>
-          <p class="card-text">{{ lettersResponse | date: 'fullDate' }}</p>
-          <a routerLink="/calendar" class="btn btn-primary">View Calendar</a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/budgetList">
+            View Current Budgets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/allLetters">
+            View Current Letters</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/calendar">View Calendar</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+  <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="cards">
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title-payment">{{ paymentsTitle }}</h5>
+              <p class="card-text">{{ payment | currency:'USD'}}</p>
+            </div>
+          </div>
+          <hr />
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title-income">{{ incomeTitle }}</h5>
+              <p class="card-text">{{ income | currency:'USD' }}</p>
+            </div>
+          </div>
+          <hr />
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title-letters">{{ lettersTitle }}</h5>
+              <p class="card-text">{{ lettersResponse | date: 'fullDate' }}</p>
+              <a routerLink="/calendar" class="btn btn-primary">View Calendar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-
-
+  </div>
 

@@ -35,6 +35,11 @@ import firebase from 'firebase/app';
     })
    }
 
+   signInWithGoogle() {
+    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.router.navigate(['/landingPage']);
+  }
+
    createUser(email: string, password: string, firstName: string, lastName: string) {
        this.afAuth.createUserWithEmailAndPassword(email, password)
        .then( userCredential => {

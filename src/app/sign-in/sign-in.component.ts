@@ -21,10 +21,12 @@ ngOnInit(){
 
 }
 
-login(form: NgForm): any {
+login(form: any): any {
   this.auth.login(form.value.email, form.value.password);
 }
 
   
-  
+loginWithGoogle() {
+  this.auth.signInWithGoogle();
+}
 }
