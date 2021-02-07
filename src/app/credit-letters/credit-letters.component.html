@@ -11,15 +11,17 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#">Log out</a></li>
       </ul>
     </nav>
-    <form>
+    <form (ngSubmit)="createLetter(letter)" #letter="ngForm">
       <div class="input-group">
         <div class="input-group">
+          <input type="text" aria-label="Letter Name" ngModel name="letterName" class="form-control" required>
+          <input type="text" aria-label="Description" ngModel name="description" class="form-control" required>
           <span class="input-group-text">Company Name & Number</span>
-          <input type="text" aria-label="Company name" class="form-control">
-          <input type="text" aria-label="Company number" class="form-control">
+          <input type="text" aria-label="Company name" ngModel name="companyName" class="form-control" required>
+          <input type="text" aria-label="Company number" ngModel name="companyPhone" class="form-control" required>
         </div>
 
-        <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+        <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon" ngModel name="type" required>
           <option selected>Type</option>
           <option value="Dispute">Dispute</option>
           <option value="Verification">Verification</option>
@@ -29,21 +31,19 @@
         </select>
         <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
       </div>
-      <form>
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Date Letter Sent">
+            <input type="text" class="form-control" placeholder="Date Letter Sent" ngModel name="dateSent" required>
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="Date Response Received">
+            <input type="text" class="form-control" placeholder="Date Response Received" ngModel name="dateReceived">
           </div>
         </div>
-      </form>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Letter Summary</label>
+        <label for="exampleFormControlTextarea1" ngModel name="letterSummary">Letter Summary</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
     </form>
-    <button type="button" class="btn btn-primary">Add to Letters</button>
+    <button type="submit" class="btn btn-primary">Add to Letters</button>
   </div>
 </div>

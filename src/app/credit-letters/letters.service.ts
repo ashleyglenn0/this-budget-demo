@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CreditLetters } from './letter.model';
 import { AngularFirestoreModule, AngularFirestoreCollection } from '@angular/fire/firestore';
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -15,5 +16,22 @@ export class LetterService {
         ];
 
     }
+
+
+createLetter(name: string, description: string, companyName: string, companyPhone: string, type: string, dateSent: string, dateReceived: string, letterSummary: string){
+    const letter: CreditLetters = new CreditLetters( name, description, companyName, companyPhone, type, dateSent, dateReceived, letterSummary);
+    this.creditLetters.push(letter);
+    return letter.id;
+}
+
+getLetterById(id: number): CreditLetters|undefined {
+    for(let i= 0; i < this.creditLetters.length; i++){
+        if(this.creditLetters[i].id === id){
+            return this.creditLetters[i];
+        }
+    }
+    return undefined;
+}
+
 }
 
