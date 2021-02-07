@@ -11,27 +11,12 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#">Log out</a></li>
       </ul>
     </nav>
-    <div class="card">
-      <h5 class="card-header">Letter 1</h5>
+    <div class="card" *ngFor="let letter of allLetters">
+      <h5 class="card-header">Letter Name: {{letter.name}}</h5>
       <div class="card-body">
-        <h5 class="card-title">Goodwill Letter</h5>
-        <p class="card-text">Letter summary...</p>
-        <a href="#" class="btn btn-primary">View Letter</a>
+        <h5 class="card-title">Letter Type: {{ letter.type }}</h5>
+        <p class="card-text">{{ letter.letterSummary }}</p>
+        <a routerLink="/calendar" class="btn btn-primary">View Letter in Calendar</a>
       </div>
     </div>
-    <div class="card">
-      <h5 class="card-header">Letter 2</h5>
-      <div class="card-body">
-        <h5 class="card-title">Dispute Letter</h5>
-        <p class="card-text">Letter summary...</p>
-        <a href="#" class="btn btn-primary">View Letter</a>
-      </div>
-    </div>
-    <div class="card">
-      <h5 class="card-header">Letter 3</h5>
-      <div class="card-body">
-        <h5 class="card-title">Inquiry Removal Letter</h5>
-        <p class="card-text">Letter summary...</p>
-        <a href="#" class="btn btn-primary">View Letter</a>
-      </div>
     </div>

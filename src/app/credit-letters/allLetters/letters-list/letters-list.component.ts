@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CreditLetters } from '../../letter.model';
+import { LetterService } from '../../letters.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-letters-list',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./letters-list.component.scss']
 })
 export class LettersListComponent implements OnInit {
+  allLetters: CreditLetters[] = [];
 
-  constructor() { }
+  constructor(private LetterService: LetterService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
+    this.allLetters = this.LetterService.getAllLetters();
   }
 
 }
