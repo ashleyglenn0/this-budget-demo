@@ -68,6 +68,11 @@ import firebase from 'firebase/app';
       }) 
 
    }
+
+   getUserData(userCredential: firebase.auth.UserCredential){
+       
+   }
+
    logout(){
        return this.afAuth.signOut();
    }
