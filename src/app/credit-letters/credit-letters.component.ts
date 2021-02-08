@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LetterService } from './letters.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from "@angular/forms";
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-credit-letters',
@@ -12,7 +13,7 @@ export class CreditLettersComponent implements OnInit {
   letterId: any;
   letter: any;
 
-  constructor(private lettersService: LetterService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private lettersService: LetterService, private router: Router, private route: ActivatedRoute, private afAuth: AuthService) { }
 
   ngOnInit(): void {
     this.letterId = +this.route.snapshot.params.id;
@@ -20,7 +21,7 @@ export class CreditLettersComponent implements OnInit {
     console.log(this.letter);
   }
 
-  createLetter(form: NgForm): any {
+  onSubmit(form: NgForm): any {
     const letterName = form.form.value.letterName;
     const description = form.form.value.description;
     const companyName = form.form.value.companyName;
@@ -29,9 +30,13 @@ export class CreditLettersComponent implements OnInit {
     const dateSent = form.form.value.dateSent;
     const dateReceived = form.form.value.dateReceived;
     const letterSummary = form.form.value.letterSummary;
-    this.lettersService.createLetter(description, companyName, companyPhone, type, dateSent, dateReceived, letterSummary, this.letter);
+    this.lettersService.createLetter(letterName,description, companyName, companyPhone, type, dateSent, dateReceived, letterSummary);
     form.resetForm();
     console.log(form);
+  }
+
+  logout(){
+    this.router.navigate(['/']);
   }
 
 }

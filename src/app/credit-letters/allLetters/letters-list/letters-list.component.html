@@ -5,10 +5,10 @@
         <h3>Letters</h3>
       </div>
       <ul class="nav nav-pills">
-        <li role="presentation" class="nav-item"><a class="nav-link"href="#">Home</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link"href="#">New Budget</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">New Letter</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Log out</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/landingPage">Home</a></li>
+        <li role="presentation" class="nav-item"><a routerLink = "/budgetTitlePage">New Budget</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/creditRepair">New Letter</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/">Log out</a></li>
       </ul>
     </nav>
     <div class="card" *ngFor="let letter of allLetters">

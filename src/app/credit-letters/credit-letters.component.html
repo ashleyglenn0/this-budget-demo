@@ -5,13 +5,13 @@
         <h3>Let's create a new letter!</h3>
       </div>
       <ul class="nav nav-pills">
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">View Budgets</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">View Letters</a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Log out</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/landingPage">Home</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/budgetList">View Budgets</a></li>
+        <li role="presentation" class="nav-item"><a routerLink ="/allLetters">View Letters</a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="/" (click)=logout()>Log out</a></li>
       </ul>
     </nav>
-    <form (ngSubmit)="createLetter(letter)" #letter="ngForm">
+    <form (ngSubmit)="onSubmit(letter)" #letter="ngForm">
       <div class="input-group">
         <div class="input-group">
           <input type="text" aria-label="Letter Name" ngModel name="letterName" class="form-control" required>
@@ -40,10 +40,10 @@
           </div>
         </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1" ngModel name="letterSummary">Letter Summary</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1" >Letter Summary</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel name="letterSummary"></textarea>
       </div>
     </form>
-    <button type="submit" class="btn btn-primary">Add to Letters</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit(letter)">Add to Letters</button>
   </div>
 </div>
