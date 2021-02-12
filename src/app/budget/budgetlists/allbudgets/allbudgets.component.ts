@@ -30,7 +30,8 @@ export class AllbudgetsComponent implements OnInit {
 
       // this.budgetService.getAllBudgetsForUser(this.uid);
 
-    this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`).subscribe()
+    this.budgetsCollection = this.afs.collection<Budget>(`Users/${this.uid}/budgets`);
+    this.budgets = this.budgetsCollection.valueChanges();
 
     // this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`); 
     // this.afs.collection(`Users/${this.uid}/budgets`).valueChanges();
