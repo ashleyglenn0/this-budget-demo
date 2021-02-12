@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Budget } from './budget/budget.model';
 import { BudgetItem } from './budget/budgetItem.model';
-import { AngularFirestoreModule, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -14,24 +14,10 @@ export class BudgetService {
   budgetItems: BudgetItem[] = [];
  
 
-  constructor() {
-    // const temp;
-    // if (temp !== null){
-    //   this.budgets = JSON.parse(temp);
-    // }else {
-    //   localStorage.setItem('budgets', '[]');
-    // }
+  constructor(private db: AngularFirestore) {
+  
 
-    this.budgets = [
-      new Budget('Budget1', 'Home Budget',[
-        new BudgetItem('Ameren Electric','888-888-8888','expense', -192.62, '1/11/21', 'none'),
-        new BudgetItem('Spire', '888-222-2111', 'expense', -50.62, '1/11/21', 'paid in full'),
-          new BudgetItem('AT&T', '888-212-2552', 'expense', -251.02, '1/11/21', 'made payment arrangement'),
-          new BudgetItem('Credit Acceptance', '888-382-5311', 'expense', -158.68, '1/11/21', 'car note'),
-          new BudgetItem('RayCodes LLC', '888-222-2222', 'income', 500.00, '1/11/21', 'for webpage'),
-          new BudgetItem('Best Buy', '888-222-2222', 'income', 1500.00, '1/11/21', 'paycheck')
-      ])
-    ];
+    this.budgets = [];
   }
 
 
@@ -59,7 +45,17 @@ export class BudgetService {
   getAllBudgets(): Budget[] {
     return this.budgets;
   }
+  getAllBudgetsForUser(uid: string){
+     return this.db.collection(`Users/${uid}/budgets`).get()
+    
+  }
+  
   persistBudgetData(): void {
     localStorage.setItem('budgets', JSON.stringify(this.budgets));
+  }
+
+  saveBudget(budget: Budget, uid: string) {
+    return this.db.collection(`Users/${uid}/budgets`).add(budget.toJSON())
+    
   }
 }

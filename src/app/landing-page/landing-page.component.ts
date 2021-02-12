@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import firebase from 'firebase/app';
 
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -25,6 +26,10 @@ export class LandingPageComponent implements OnInit {
     .subscribe( user => {
       this.user = user;
     })
+  }
+
+  logOut(){
+    this.auth.logout();
   }
 
 }

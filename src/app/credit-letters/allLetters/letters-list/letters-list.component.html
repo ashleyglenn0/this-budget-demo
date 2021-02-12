@@ -11,10 +11,10 @@
         <li role="presentation" class="nav-item"><a routerLink ="/">Log out</a></li>
       </ul>
     </nav>
-    <div class="card" *ngFor="let letter of allLetters">
+    <div class="card" *ngFor="let letter of loadedLetters">
       <h5 class="card-header">Letter Name: {{letter.name}}</h5>
       <div class="card-body">
-        <h5 class="card-title">Letter Type: {{ letter.type }}</h5>
+        <h5 class="card-title">Letter Type: {{ letter.type}}</h5>
         <p class="card-text">{{ letter.letterSummary }}</p>
         <a routerLink="/calendar" class="btn btn-primary">View Letter in Calendar</a>
       </div>

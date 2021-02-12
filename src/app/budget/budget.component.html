@@ -11,7 +11,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" routerLink="/home">Log out</a></li>
       </ul>
     </nav>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="input-group">
       <div class="input-group">
         <span class="input-group-text">Date, Company Name, & Company Number</span>
@@ -35,7 +35,8 @@
       <label for="exampleFormControlTextarea1">Notes</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel name="notes"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Add to Budget</button>
+    <button class="btn btn-secondary"(click)="addBudgetItem(f)">Add to Budget</button>
+    <button type="submit" class="btn btn-primary">Save Budget</button>
     </form>
   </div>
 </div>

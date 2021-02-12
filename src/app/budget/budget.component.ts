@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Budget } from './budget.model';
 import { BudgetItem} from './budgetItem.model';
+import { AngularFireAuth} from '@angular/fire/auth';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -15,17 +17,20 @@ import { BudgetItem} from './budgetItem.model';
 export class BudgetComponent implements OnInit {
    budgetId: any;
    budget: any;
+   uid: any;
 
-
-  constructor(private router: Router, private budgetService: BudgetService, private route: ActivatedRoute) {   }
+  constructor(private router: Router, private budgetService: BudgetService, private route: ActivatedRoute, private auth: AuthService) {   }
 
   ngOnInit(): void {
    this.budgetId = +this.route.snapshot.params.id;
    this.budget = this.budgetService.getBudgetById(this.budgetId);
    console.log(this.budget);
-  }
 
-  onSubmit(form: NgForm): any{
+   this.auth.getUserState().subscribe(user =>{
+     this.uid = user?.uid;
+   }) 
+  }
+  addBudgetItem(form: NgForm): any{
     const date = form.form.value.date;
     const companyName = form.form.value.companyName;
     const companyPhoneNumber = form.form.value.companyPhone;
@@ -35,6 +40,10 @@ export class BudgetComponent implements OnInit {
     this.budgetService.createBudgetItem(date, companyName, companyPhoneNumber, type, amount, notes, this.budget);
     form.resetForm();
     console.log(form);
+  }
+
+  onSubmit(): any{
+   this.budgetService.saveBudget(this.budget, this.uid);
   }
 
 }
