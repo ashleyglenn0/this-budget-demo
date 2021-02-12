@@ -25,6 +25,8 @@ export class AllbudgetsComponent implements OnInit {
     this.auth.getUserState().subscribe(user =>{
       this.uid = user?.uid;
 
+      this.budgetService.getAllBudgets();
+
       // this.budgetService.getAllBudgetsForUser(this.uid);
 
     //   this.afs.collection(`Users/${this.uid}/budgets`).valueChanges()

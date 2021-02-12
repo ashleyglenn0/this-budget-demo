@@ -27,6 +27,9 @@ export class LettersListComponent implements OnInit {
   }
 
   ngOnInit(): any {
+
+    this.LetterService.getLetters();
+    
     this.afs.collection(`Users/${this.uid}/letters`).valueChanges()
       .subscribe(val => console.log(val));
 
