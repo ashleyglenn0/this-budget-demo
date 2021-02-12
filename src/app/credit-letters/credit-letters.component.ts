@@ -56,7 +56,7 @@ export class CreditLettersComponent implements OnInit {
     const dateReceived = form.form.value.dateReceived;
     const letterSummary = form.form.value.letterSummary;
     this.db.collection(`Users/${this.userId}/letters`).add({letterName,description,companyName,companyPhone,type,dateSent,dateReceived,letterSummary});
-    // this.lettersService.addLetter();
+     this.lettersService.createLetter(letterName, description, companyName, companyPhone, type, dateSent, dateReceived, letterSummary);
     form.resetForm();
     console.log(form);
   }

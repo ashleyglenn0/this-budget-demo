@@ -15,19 +15,19 @@ import { map } from 'rxjs/operators';
 })
 export class LettersListComponent implements OnInit {
   loadedLetters: CreditLetters[] = [];
-  userId: string = '';
+  uid: any = '';
 
   constructor(private LetterService: LetterService, private router: Router, private afs: AngularFirestore, public auth: AngularFireAuth, private request: HttpClient) {
 
 
     this.auth.user.subscribe((user) => {
-      this.userId = user?.uid || '';
+      this.uid = user?.uid || '';
     })
     // this.allLetters = this.afs.collection('letters').snapshotChanges();
   }
 
   ngOnInit(): any {
-    this.afs.collection('Users/lkJEOspXMwYadBI70xHbxPZagyz1/letters').valueChanges()
+    this.afs.collection(`Users/${this.uid}/letters`).valueChanges()
       .subscribe(val => console.log(val));
 
   }

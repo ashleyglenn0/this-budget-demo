@@ -15,7 +15,13 @@ export class BudgetService {
  
 
   constructor(private db: AngularFirestore) {
-  
+    const temp = localStorage.getItem('budgets');
+
+    if (temp !== null){
+      this.budgets = JSON.parse(temp)
+    } else{
+      localStorage.setItem('budgets', '[]');
+    }
 
     this.budgets = [];
   }
@@ -24,6 +30,7 @@ export class BudgetService {
   createBudget(budgetName: string, budgetDescription: string, budgetItems: any = []): number {
     const budget: Budget = new Budget(budgetName, budgetDescription, budgetItems);
     this.budgets.push(budget);
+    this.persistBudgetData();
     return budget.id;
   }
   
@@ -39,7 +46,7 @@ export class BudgetService {
   createBudgetItem(date: string, companyName: string, companyPhone: string, type: string, amount: number, notes: string, budget: Budget): any {
     const budgetItem: BudgetItem = new BudgetItem(companyName, companyPhone, type, amount, date, notes);
     budget.budgetItems.push(budgetItem);
-    //  this.persistBudgetData();
+    this.persistBudgetData();
     return budgetItem;
   }
   getAllBudgets(): Budget[] {
