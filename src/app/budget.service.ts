@@ -10,20 +10,27 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class BudgetService {
-   budgets: Budget[] = [];
+  budgets: Budget[] = [];
   budgetItems: BudgetItem[] = [];
- 
+
 
   constructor(private db: AngularFirestore) {
     const temp = localStorage.getItem('budgets');
 
-    if (temp !== null){
+    if (temp !== null) {
       this.budgets = JSON.parse(temp)
-    } else{
+    } else {
       localStorage.setItem('budgets', '[]');
+      
+      this.budgets = [new Budget('Budget1', 'Home Budget', [
+        new BudgetItem('Ameren Electric', '888-222-2222', 'expense', -192.62, '1/11/21', 'none'),
+        new BudgetItem('Best Buy', '888-222-2222', 'income', 1500.00, '1/11/21', 'paycheck')
+      ])
+      ];
+
     }
 
-    this.budgets = [];
+
   }
 
 
@@ -33,7 +40,7 @@ export class BudgetService {
     this.persistBudgetData();
     return budget.id;
   }
-  
+
   getBudgetById(id: number): Budget | undefined {
     for (let i = 0; i < this.budgets.length; i++) {
       if (this.budgets[i].id === id) {
@@ -52,17 +59,17 @@ export class BudgetService {
   getAllBudgets(): Budget[] {
     return this.budgets;
   }
-  getAllBudgetsForUser(uid: string){
-     return this.db.collection(`Users/${uid}/budgets`).get()
-    
+  getAllBudgetsForUser(uid: string) {
+    return this.db.collection(`Users/${uid}/budgets`).get()
+
   }
-  
+
   persistBudgetData(): void {
     localStorage.setItem('budgets', JSON.stringify(this.budgets));
   }
 
   saveBudget(budget: Budget, uid: string) {
     return this.db.collection(`Users/${uid}/budgets`).add(budget.toJSON())
-    
+
   }
 }

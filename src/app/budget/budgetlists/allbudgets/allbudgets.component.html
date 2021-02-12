@@ -12,7 +12,7 @@
       </ul>
     </nav>
 
-    <div class="card" *ngFor="let budget of allBudgets">
+    <div class="card" *ngFor="let budget of budgets | async">
       <h5 class="card-header">Budget Name: {{budget.name}}</h5>
       <div class="card-body">
         <h5 class="card-title">Budget Description:{{budget.description}}</h5>

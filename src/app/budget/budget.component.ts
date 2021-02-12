@@ -38,12 +38,14 @@ export class BudgetComponent implements OnInit {
     const amount = form.form.value.amount;
     const notes = form.form.value.notes;
     this.budgetService.createBudgetItem(date, companyName, companyPhoneNumber, type, amount, notes, this.budget);
+    this.budgetService.saveBudget(this.budget, this.uid);
     form.resetForm();
     console.log(form);
   }
 
-  onSubmit(): any{
-   this.budgetService.saveBudget(this.budget, this.uid);
-  }
+   onSubmit(): any{
+    // this.budgetService.saveBudget(this.budget, this.uid);
+  
+   }
 
 }

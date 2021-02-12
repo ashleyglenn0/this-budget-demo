@@ -11,7 +11,7 @@
         <li role="presentation" class="nav-item"><a routerLink ="/">Log out</a></li>
       </ul>
     </nav>
-    <div class="card" *ngFor="let letter of loadedLetters">
+    <div class="card" *ngFor="let letter of allLetters">
       <h5 class="card-header">Letter Name: {{letter.name}}</h5>
       <div class="card-body">
         <h5 class="card-title">Letter Type: {{ letter.type}}</h5>

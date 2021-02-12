@@ -39,14 +39,11 @@ export class LetterService {
             this.letters = JSON.parse(temp);
         }else{
             localStorage.setItem('creditLetters', '[]');
+            this.creditLetters = [];
         }
 
 
-        // this.creditLetters = [
-        //     new CreditLetters ('Letter1', 'Inquiry Removal Letter', 'Experian', '888-222-2222', 'Inquiry Removal', '2/3/21', '3/3/21', 'Spoke with Anna at Experian and waiting on removal'),
-        //     new CreditLetters ('Letter2', 'Goodwill', 'Experian', '888-222-2222', 'Goodwill', '2/3/21', '3/3/21', 'Spoke with Anna at Experian and waiting on removal'),
-        //     new CreditLetters ('Letter3', 'Dispute', 'Experian', '888-222-2222', 'Dispute', '2/3/21', '3/3/21', 'Spoke with Anna at Experian and waiting on removal')
-        // ];
+      
 
     }
 

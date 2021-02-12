@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./letters-list.component.scss']
 })
 export class LettersListComponent implements OnInit {
-  loadedLetters: CreditLetters[] = [];
+  allLetters: CreditLetters[] = [];
   uid: any = '';
 
   constructor(private LetterService: LetterService, private router: Router, private afs: AngularFirestore, public auth: AngularFireAuth, private request: HttpClient) {

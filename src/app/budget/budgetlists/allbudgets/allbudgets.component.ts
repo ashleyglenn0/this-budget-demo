@@ -3,8 +3,8 @@ import { Budget } from '../../budget.model';
 import { BudgetService } from '../../../budget.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +13,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./allbudgets.component.scss']
 })
 export class AllbudgetsComponent implements OnInit {
-  allBudgets: Budget[] = [];
+  private budgetsCollection!: AngularFirestoreCollection<Budget>
+  budgets!: Observable<Budget[]>
   uid: any;
   
   
@@ -25,15 +26,14 @@ export class AllbudgetsComponent implements OnInit {
     this.auth.getUserState().subscribe(user =>{
       this.uid = user?.uid;
 
-      this.budgetService.getAllBudgets();
+      // this.budgetService.getAllBudgets();
 
       // this.budgetService.getAllBudgetsForUser(this.uid);
 
-    //   this.afs.collection(`Users/${this.uid}/budgets`).valueChanges()
-    // .subscribe(val => console.log(val));
-    
-    this.afs.collection(`Users/${this.uid}/budgets`).valueChanges()
-    .subscribe(val => console.log(val))
+    this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`).subscribe()
+
+    // this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`); 
+    // this.afs.collection(`Users/${this.uid}/budgets`).valueChanges();
     
     
     
