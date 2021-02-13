@@ -24,27 +24,18 @@ export class AllbudgetsComponent implements OnInit {
   ngOnInit(): any {
     
     this.auth.getUserState().subscribe(user =>{
-      this.uid = user?.uid;
-
-      // this.budgetService.getAllBudgets();
-
-      // this.budgetService.getAllBudgetsForUser(this.uid);
+    this.uid = user?.uid;
 
     this.budgetsCollection = this.afs.collection<Budget>(`Users/${this.uid}/budgets`);
     this.budgets = this.budgetsCollection.valueChanges();
-
-    // this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`); 
-    // this.afs.collection(`Users/${this.uid}/budgets`).valueChanges();
-    
-    
-    
+      
   })
     
     
   }
 
   onViewBudget(budget: Budget): void{
-    this.router.navigate(['/singleBudgetPage', budget.id]);
+    this.router.navigate(['/singleBudgetPage']);
   }
 
 }

@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'terms', component: TermsComponent},
   { path: 'budgetTitle', component: BudgetTitlePageComponent},
   { path: 'budget/:id', component: BudgetComponent },
-  { path: 'singleBudgetPage/:id', component: SingleBudgetComponent}
+  { path: 'singleBudgetPage', component: SingleBudgetComponent}
 ];
 
 @NgModule({

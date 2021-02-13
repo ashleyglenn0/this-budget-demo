@@ -22,11 +22,7 @@ export class BudgetService {
     } else {
       localStorage.setItem('budgets', '[]');
       
-      this.budgets = [new Budget('Budget1', 'Home Budget', [
-        new BudgetItem('Ameren Electric', '888-222-2222', 'expense', -192.62, '1/11/21', 'none'),
-        new BudgetItem('Best Buy', '888-222-2222', 'income', 1500.00, '1/11/21', 'paycheck')
-      ])
-      ];
+      this.budgets = [];
 
     }
 
