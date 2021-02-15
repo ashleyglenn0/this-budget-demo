@@ -4,6 +4,7 @@ import { BudgetService } from '../../budget.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BudgetItem } from '..//budgetItem.model';
 
+
 @Component({
   selector: 'app-single-budget',
   templateUrl: './single-budget.component.html',
@@ -12,7 +13,7 @@ import { BudgetItem } from '..//budgetItem.model';
 
 export class SingleBudgetComponent implements OnInit {
   budgetId: any;
-  budget: Budget | undefined;
+  budget: Budget| undefined;
   expense: number = 0;
   income: number = 0;
   total: number = 0;

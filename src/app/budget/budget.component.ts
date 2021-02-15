@@ -43,7 +43,7 @@ export class BudgetComponent implements OnInit {
   }
 
    onSubmit(): any{
-    // this.budgetService.saveBudget(this.budget, this.uid);
+    this.budgetService.saveBudget(this.budget, this.uid);
   
    }
 
