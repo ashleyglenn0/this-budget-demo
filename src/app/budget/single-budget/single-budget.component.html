@@ -26,7 +26,7 @@
         {{item.companyName}} {{item.type}}
       </div>
     </div>
-    <p>
+    <p class="totals">
       Total Income for budget: {{ this.income }}
       <br>
       Total Expenses for budget: {{ this.expense }}
@@ -34,7 +34,7 @@
 
       Difference: {{this.total}}
     </p>
-
+    <div class= "lists">
     <ul>These are your expenses for this budget:
       <li *ngFor="let expense of expenseList">
          {{ expense.companyName }} {{ expense.amount }}
@@ -46,6 +46,7 @@
          {{ income.companyName }} {{income.amount }} 
       </li>
     </ul>
+  </div>
 
   </div>
 </div>

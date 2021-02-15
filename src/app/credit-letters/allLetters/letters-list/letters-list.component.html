@@ -12,6 +12,7 @@
       </ul>
     </nav>
     <div class="card" *ngFor="let letter of letters | async">
+      <h5 class="card-header">Letter Date Name: {{letter.letterName}}</h5>
       <h5 class="card-header">Letter Date Sent: {{letter.dateSent}}</h5>
       <div class="card-body">
         <h5 class="card-title">Letter Type: {{ letter.type}}</h5>
