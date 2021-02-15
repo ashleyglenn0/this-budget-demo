@@ -28,7 +28,7 @@ export class AllbudgetsComponent implements OnInit {
 
       // this.budgetService = this.afs.collection(`Users/${this.uid}/budgets`).subscribe();
       this.budgetsCollection = this.afs.collection<Budget>(`Users/${this.uid}/budgets`);
-      this.budgets = this.budgetsCollection.valueChanges();
+      this.budgets = this.budgetsCollection.valueChanges({idField: 'id'});
      
     //    this.budgetsCollection = this.afs.collection(`Users/${this.uid}/budgets`); 
     //  this.afs.collection(`Users/${this.uid}/budgets`).valueChanges();
@@ -40,7 +40,7 @@ export class AllbudgetsComponent implements OnInit {
   }
 
   onViewBudget(budget: Budget): void{
-    this.router.navigate(['/singleBudgetPage']);
+    this.router.navigate(['/singleBudgetPage', budget.id]);
   }
 
 }
