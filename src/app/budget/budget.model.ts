@@ -2,7 +2,7 @@ import { BudgetItem } from './budgetItem.model';
 import { BudgetTitlePageComponent } from './budgetTitle/budget-title-page/budget-title-page.component';
 
 export class Budget {
-  public id: number;
+  public id: any;
   public name: string;
   public description: string;
   public budgetItems: BudgetItem[];

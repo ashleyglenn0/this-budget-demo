@@ -16,7 +16,9 @@ export class AllbudgetsComponent implements OnInit {
   private budgetsCollection!: AngularFirestoreCollection<Budget>
   budgets!: Observable<Budget[]>
   uid: any;
-  
+  singleBudget: any;
+  budgetId: any;
+ 
   
 
   constructor(private budgetService: BudgetService, private router: Router, private afs: AngularFirestore, private auth: AuthService) { }
@@ -25,6 +27,7 @@ export class AllbudgetsComponent implements OnInit {
     
     this.auth.getUserState().subscribe(user =>{
     this.uid = user?.uid;
+    
 
       // this.budgetService = this.afs.collection(`Users/${this.uid}/budgets`).subscribe();
       this.budgetsCollection = this.afs.collection<Budget>(`Users/${this.uid}/budgets`);
@@ -39,8 +42,15 @@ export class AllbudgetsComponent implements OnInit {
     
   }
 
+
   onViewBudget(budget: Budget): void{
     this.router.navigate(['/singleBudgetPage', budget.id]);
   }
 
+  onDeleteBudget(budget: Budget): any{  
+  this.afs.collection(`Users/${this.uid}/budgets`).doc(budget.id).delete();
+  
+  }
+
 }
+

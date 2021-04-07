@@ -1,7 +1,7 @@
 import { identifierModuleUrl } from "@angular/compiler";
 
 export class CreditLetters {
-  public id: number;
+  public id: any;
   public letterName: string;
   public description: string;
   public companyName: string;
