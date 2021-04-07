@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { NONE_TYPE } from '@angular/compiler';
 
 
 
@@ -50,7 +51,21 @@ export class AllbudgetsComponent implements OnInit {
     this.afs.collection(`Users/${this.uid}/budgets`).doc(budget.id).delete();
   }
   onUpdateBudget(budget: Budget): any {
-    this.singleBudget = this.afs.collection(`Users/${this.uid}/budgets`).doc(budget.id).update({});
+    this.singleBudget = this.afs.collection(`Users/${this.uid}/budgets`).doc(budget.id).update({
+      name: 'Ashleys budget',
+      description: 'Budget for the crib',
+      budgetItems: [{
+        date: '4/12/21',
+        companyName: 'Spire',
+        companyPhone: '888-888-8888',
+        type: 'payment',
+        amount: 125.42,
+        notes: 'For gas bill'
+      }
+        
+      ]
+    });
+     
     
   }
 

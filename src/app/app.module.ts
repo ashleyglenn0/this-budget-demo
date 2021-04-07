@@ -26,6 +26,7 @@ import { TermsComponent } from './terms/terms.component';
 import { BudgetTitlePageComponent } from './budget/budgetTitle/budget-title-page/budget-title-page.component';
 // import { BudgetServiceOriginal } from './budget/budget.service.original';
 import { SingleBudgetComponent } from './budget/single-budget/single-budget.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SingleBudgetComponent } from './budget/single-budget/single-budget.comp
     SupportComponent,
     TermsComponent,
     BudgetTitlePageComponent,
-    SingleBudgetComponent
+    SingleBudgetComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,
