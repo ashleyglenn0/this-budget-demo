@@ -43,9 +43,9 @@ export class SingleBudgetComponent implements OnInit {
         this.budget = budget;
         this.expenseList = this.budget?.budgetItems.filter(item => item.type === 'Expense') || [];
         this.incomeList = this.budget?.budgetItems.filter(item => item.type === 'Income') || [];
-        this.expense = this.expenseList.reduce((total, next) => total += next.amount, 0) || 0;
-        this.income = this.incomeList.reduce((total, next) => total += next.amount, 0) || 0;
-        this.total = (this.expense + this.income);
+        this.expense = this.expenseList.reduce((total, next) => total -= next.amount, 0) || 0.00;
+        this.income = this.incomeList.reduce((total, next) => total += next.amount, 0) || 0.00;
+        this.total = (this.expense - this.income);
       })
 
     })

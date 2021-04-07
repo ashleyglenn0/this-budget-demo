@@ -58,8 +58,8 @@ export class AllbudgetsComponent implements OnInit {
         date: '4/12/21',
         companyName: 'Spire',
         companyPhone: '888-888-8888',
-        type: 'payment',
-        amount: 125.42,
+        type: 'Expense',
+        amount: -125.47,
         notes: 'For gas bill'
       }
         
