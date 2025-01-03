@@ -3,8 +3,8 @@ import { LetterService } from './letters.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { AuthService } from '../auth.service';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 // export interface CreditLetters {

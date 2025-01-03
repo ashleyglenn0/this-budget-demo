@@ -3,8 +3,8 @@ import { CreditLetters } from '../../letter.model';
 import { LetterService } from '../../letters.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from '../../../auth.service';
 
 

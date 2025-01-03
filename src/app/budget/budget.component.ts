@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Budget } from './budget.model';
 import { BudgetItem} from './budgetItem.model';
-import { AngularFireAuth} from '@angular/fire/auth';
+import { AngularFireAuth} from '@angular/fire/compat/auth';
 import { AuthService } from '../auth.service';
 
 

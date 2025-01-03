@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Budget } from './budget/budget.model';
 import { BudgetItem } from './budget/budgetItem.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 

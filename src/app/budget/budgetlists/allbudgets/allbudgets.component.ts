@@ -3,7 +3,7 @@ import { Budget } from '../../budget.model';
 import { BudgetService } from '../../../budget.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { NONE_TYPE } from '@angular/compiler';
 
